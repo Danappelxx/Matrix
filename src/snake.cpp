@@ -127,5 +127,5 @@ void Snake::draw(Matrix* matrix) {
         matrix->set(point, Color { 200, 200, 0 });
     }
 
-    matrix->set(food, Color { 255, 0, 0 });
+    matrix->set(food, Color { 255, 75, 0 });
 }
