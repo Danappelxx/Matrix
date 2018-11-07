@@ -9,8 +9,6 @@
 #define PIXEL_COUNT 420 // 14x30 (14 tall, 30 wide)
 #define PIXEL_TYPE WS2812B
 
-SYSTEM_MODE(SEMI_AUTOMATIC);
-
 Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
 Matrix* matrix = new Matrix(14, 30);
 Snake* snake = new Snake(14, 30);
