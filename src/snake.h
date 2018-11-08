@@ -7,7 +7,7 @@
 
 class Snake {
 public:
-    Snake(int height, int width);
+    Snake(bool ai, int height, int width);
     void reset();
     void setDirection(const Direction& direction);
     void step();
@@ -23,4 +23,5 @@ private:
     Direction direction;
     Point food;
     int height, width;
+    bool ai;
 };

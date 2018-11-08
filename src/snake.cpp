@@ -1,7 +1,8 @@
 #include "snake.h"
 #include <algorithm>
 
-Snake::Snake(int height, int width) {
+Snake::Snake(bool ai, int height, int width) {
+    this->ai = ai;
     this->height = height;
     this->width = width;
     reset();
@@ -76,18 +77,20 @@ void Snake::step() {
         points.erase(points.begin());
     }
 
-    // 4/5 times, move in the right direction
-    if (std::rand() % 5 != 0) {
-        setDirection(directionTowardsFood());
-        // if the "right" direction kills itself (it can happen), move randomly
-        if (!isGameOver())
-            return;
-    }
-    // give it 100 guesses to not kill itself lol
-    for (int i = 0; i < 100; i++) {
-        setDirection(randomDirection());
-        if (!isGameOver())
-            break;
+    if (ai) {
+        // 4/5 times, move in the right direction
+        if (std::rand() % 5 != 0) {
+            setDirection(directionTowardsFood());
+            // if the "right" direction kills itself (it can happen), move randomly
+            if (!isGameOver())
+                return;
+        }
+        // give it 100 guesses to not kill itself lol
+        for (int i = 0; i < 100; i++) {
+            setDirection(randomDirection());
+            if (!isGameOver())
+                break;
+        }
     }
 }
 
