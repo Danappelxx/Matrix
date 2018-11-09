@@ -10,6 +10,7 @@ public:
     Snake(int height, int width);
     void reset();
     void setDirection(const Direction& direction);
+    void setAIEnabled(bool aiEnabled);
     void step();
     void draw(Matrix* matrix);
     int getLength() const;
@@ -23,4 +24,5 @@ private:
     Direction direction;
     Point food;
     int height, width;
+    bool aiEnabled;
 };

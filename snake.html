@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Snake!</title>
+</head>
+<body>
+
+	<input id="controller" type="text" oninput="onInput()">
+
+	<script>
+		function onInput() {
+			var input = document.getElementById("controller");
+			var char = input.value;
+			input.value = "";
+			socket.send(char);
+		}
+		var socket = new WebSocket("ws://192.168.1.5");
+		socket.onopen = function(event) {
+			socket.send("AI_OFF");
+		};
+		window.onbeforeunload = function() {
+			socket.send("AI_ON");
+		};
+	</script>
+
+</body>
+</html>
