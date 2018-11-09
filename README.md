@@ -1,5 +1,5 @@
 # Matrix
-Animations displaying on LED Matrix, currently just plays snake on loop.
+Animations displaying on LED Matrix, currently just plays snake on loop via websocket or a basic AI.
 
 ## Build notes
 This project depends on a private fork of the [Arduino Websockets](https://github.com/Links2004/arduinoWebSockets) library, found [here](https://github.com/Danappelxx/arduinoWebSockets).
