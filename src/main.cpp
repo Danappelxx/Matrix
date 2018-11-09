@@ -12,7 +12,7 @@
 
 Adafruit_NeoPixel strip(PIXEL_COUNT, PIXEL_PIN, PIXEL_TYPE);
 Matrix* matrix = new Matrix(14, 30);
-Snake* snake = new Snake(false, 14, 30);
+Snake* snake = new Snake(14, 30);
 WebSocketsServer webSocket = WebSocketsServer(80);
 
 void onEvent(uint8_t id, WStype_t type, uint8_t* payload, size_t length) {
@@ -33,6 +33,10 @@ void onEvent(uint8_t id, WStype_t type, uint8_t* payload, size_t length) {
                     snake->setDirection(LEFT);
                 } else if (text.equals("RIGHT") || text.equalsIgnoreCase("D")) {
                     snake->setDirection(RIGHT);
+                } else if (text.equals("AI_ON")) {
+                    snake->setAIEnabled(true);
+                } else if (text.equals("AI_OFF")) {
+                    snake->setAIEnabled(false);
                 }
             }
 
